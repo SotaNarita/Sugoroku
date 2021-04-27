@@ -61,9 +61,21 @@ public class Game {
 							if(s>0) {
 								System.out.println("+" + s + "マス\n");
 								current.setCurrentBlock(current.getCurrentBlock()+s);
+								if (current.getCurrentBlock()<board_.blockNum.size()-1) {
+									System.out.println(current.getName()+ "はゴールにたどり着いた");
+									break;
+								}
 							} else if (s<0) {
-								System.out.println(s + "マス\n");
+								System.out.println(s + "マス");
 								current.setCurrentBlock(current.getCurrentBlock()+s);
+								if (current.getCurrentBlock() <0) {
+									current.setCurrentBlock(0);
+								}
+								if (current.getCurrentBlock()==0) {
+									System.out.println("振出しに戻った\n");
+								} else {
+									System.out.println("\n");
+								}
 							} else {
 								System.out.println("\n");
 							}
